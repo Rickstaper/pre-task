@@ -43,6 +43,31 @@ namespace Gcd.Tests
         [Test]
         public void GetGcdWithThreeParameters_ThrowArgumentException() => Assert.Throws<ArgumentException>(() => GCD.GetGcdByEuclidean(0, 0, 0), "Throwed argument exception because method containt zero argument");
 
+        [TestCase(1, 1, 1, 1, ExpectedResult = 1)]
+        [TestCase(10, 14, 2, 8, ExpectedResult = 2)]
+        [TestCase(15, 30, 15, 30, ExpectedResult = 15)]
+        [TestCase(100, 50, 2, 200, ExpectedResult = 2)]
+        [TestCase(15, 5, 45, 5, ExpectedResult = 5)]
+        [TestCase(-15, 30, 15, -30, ExpectedResult = 15)]
+        [TestCase(100, 50, 2, -200, ExpectedResult = 2)]
+        [TestCase(15, -5, 45, 5, ExpectedResult = 5)]
+        public int GetGcdFourParameters(int a, int b, int c, int d)
+        {
+            return GCD.GetGcdByEuclidean(a, b, c, d);
+        }
+
+        [Test]
+        public void GetGcdWithFourParameters_ThrowArgumentException() => Assert.Throws<ArgumentException>(() => GCD.GetGcdByEuclidean(0, 0, 0, 0), "Throwed argument exception because method containt zero argument");
+
+        [TestCase(1, 1, 1, 1, 1, ExpectedResult = 1)]
+        [TestCase(8, 4, 2, 16, 32, ExpectedResult = 2)]
+        [TestCase(15, 30, 60, 120, 240, ExpectedResult = 15)]
+        [TestCase(15, 15, 15, 30, 30, ExpectedResult = 15)]
+        public int GetGcdFiveParameters(int a, int b, int c, int d, int f)
+        {
+            return GCD.GetGcdByEuclidean(a, b, c, d, f);
+        }
+
         [TearDown]
         public void TearDown()
         {
