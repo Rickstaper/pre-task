@@ -19,7 +19,8 @@ namespace Gcd
         /// </summary>
         /// <param name="a">First number</param>
         /// <param name="b">Second number</param>
-        /// <returns></returns>
+        /// <param name="spendTime">Spend time for algorithm</param>
+        /// <returns>GCD</returns>
         public static int GetGcdByEuclidean(int a, int b, out TimeSpan spendTime)
         {
             Stopwatch time = Stopwatch.StartNew();
@@ -51,6 +52,13 @@ namespace Gcd
             return a + b;
         }
 
+        /// <summary>
+        /// Calculates GCD with three parameters by Euclidean
+        /// </summary>
+        /// <param name="a">First number</param>
+        /// <param name="b">Second number</param>
+        /// <param name="c">Third number</param>
+        /// <returns>GCD</returns>
         public static int GetGcdByEuclidean(int a, int b, int c)
         {
             if (a == 0 || b == 0 || c == 0)
@@ -99,7 +107,7 @@ namespace Gcd
         /// <param name="a">First number</param>
         /// <param name="b">Second number</param>
         /// <param name="other">Other numbers</param>
-        /// <returns></returns>
+        /// <returns>GCD</returns>
         public static int GetGcdByEuclidean(int a, int b, params int[] other)
         {
             if (a == 0 || b == 0 || other.All(i => i == 0))
@@ -165,6 +173,13 @@ namespace Gcd
             return firstResult + otherResult;
         }
 
+        /// <summary>
+        /// Calculates GCD with two parameters by Stein
+        /// </summary>
+        /// <param name="a">First number</param>
+        /// <param name="b">Second number</param>
+        /// <param name="spendTime">Spend time for algorithm</param>
+        /// <returns>GCD</returns>
         public static int GetGcdByStein(int a, int b, out TimeSpan spendTime)
         {
             Stopwatch time = Stopwatch.StartNew();
