@@ -51,6 +51,48 @@ namespace Gcd
             return a + b;
         }
 
+        public static int GetGcdByEuclidean(int a, int b, int c)
+        {
+            if (a == 0 || b == 0 || c == 0)
+            {
+                throw new ArgumentException(nameof(GetGcdByEuclidean));
+            }
+
+            a = (a < 0) ? a * (-1) : a;
+
+            b = (b < 0) ? b * (-1) : b;
+
+            c = (c < 0) ? c * (-1) : c;
+
+            while (a != 0 && b != 0)
+            {
+                if (a > b)
+                {
+                    a %= b;
+                }
+                else
+                {
+                    b %= a;
+                }
+            }
+
+            int result = a + b;
+
+            while(result !=0 && c != 0)
+            {
+                if (result > c)
+                {
+                    result %= c;
+                }
+                else
+                {
+                    c %= result;
+                }
+            }
+
+            return result + c;
+        }
+
         /// <summary>
         /// Calculates GCD by Euclidean with three and more parameters
         /// </summary>
