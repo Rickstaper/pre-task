@@ -222,11 +222,11 @@ namespace Gcd
             return (a + b) * iterations;
         }
 
-        public static string CrateJsonData(IList<Data> data)
+        public static string CrateJsonData(List<Data> data)
         {
             string jsonData = JsonConvert.SerializeObject(data);
 
-            File.WriteAllText(GetPath("data.json"), jsonData);
+            File.AppendAllText(GetPath("data.json"), jsonData);
 
             return jsonData;
         }

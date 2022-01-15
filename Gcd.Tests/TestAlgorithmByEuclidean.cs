@@ -3,7 +3,7 @@ using System;
 
 namespace Gcd.Tests
 {
-    public class TestAlgorithmByEuclidean
+    public class TestAlgorithmByEuclidean : BaseTest
     {
         private TimeSpan spendTime;
 
@@ -71,6 +71,8 @@ namespace Gcd.Tests
         [TearDown]
         public void TearDown()
         {
+            data.Add(new Data(this.GetType().ToString(), this.spendTime.ToString()));
+
             Console.WriteLine($"Method:{this.GetType()}\nSpend time:{this.spendTime}");
         }
     }
